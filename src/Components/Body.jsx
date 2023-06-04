@@ -35,7 +35,9 @@ function Body() {
   };
   return (
     <>
-      <Box sx={{ display: "flex", height: "100vh", border: "1px solid red" }}>
+      <Box sx={{ display: "flex", height: "100vh", 
+      // border: "1px solid red" 
+      }}>
         <Box
           sx={{
             width: "100%",
@@ -56,7 +58,7 @@ function Body() {
               gap: "0px",
               // px: "10px",
               alignItems: "center",
-              border: "1px solid red",
+              // border: "1px solid red",
               width: "80%",
             }}
           >
@@ -71,12 +73,12 @@ function Body() {
                 alignItems: "center",
                 gap: "20px",
                 width: "120%",
-                border: "1px solid black",
+                // border: "1px solid black",
               }}
             >
               {imageData &&
                 imageData.map((e, i) => (
-                  <div className={current === i ?"normal":"black"}
+                  <div 
                     key={e.id}
                     style={{
                       display: "flex",
@@ -87,6 +89,7 @@ function Body() {
                     }}
                   >
                     <img
+                    className={current === i ?"normal":"black"}
                       onClick={() => handleClickImage(i)}
                       style={{
                         width: "100%",
