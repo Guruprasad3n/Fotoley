@@ -33,33 +33,58 @@ function Body() {
   const handlePalyPause = () => {
     setPlayPause(!playPause);
   };
+  function minimizeParagraphLines(paragraphId, linesToShow) {
+    const paragraph = document.getElementById(paragraphId);
+    const lineHeight = parseInt(getComputedStyle(paragraph).lineHeight);
+    const maxHeight = linesToShow * lineHeight;
+
+    paragraph.style.maxHeight = maxHeight + "px";
+    paragraph.style.overflow = "hidden";
+  }
+  // minimizeParagraphLines("myParagraph", 3);
   return (
     <>
-      <Box sx={{ display: "flex", height: "100vh", 
-      // border: "1px solid red" 
-      }}>
+      <Box
+        className="respon"
+        sx={{
+          display: "flex",
+          height: "100vh",
+          width: "100%",
+          // border: "1px solid red"
+        }}
+      >
         <Box
+          className="imageText"
           sx={{
             width: "100%",
             display: "flex",
             flexDirection: "column",
             gap: "50px",
+            width: "50%",
+            // border:"1px solid red",
             py: "50px",
           }}
         >
           <img
-            style={{ objectFit:"cover",  height:"400px", width: "700px", borderRadius: "50px" }}
+            className="mainImage"
+            style={{
+              objectFit: "cover",
+              height: "30rem",
+              width: "100%",
+              borderRadius: "50px",
+            }}
             src={imageData[current].image}
             alt={imageData[current].name}
           />
           <Box
+            className="bottomImages"
             sx={{
               display: "flex",
               gap: "0px",
               // px: "10px",
               alignItems: "center",
               // border: "1px solid red",
-              width: "80%",
+              width: "100%",
             }}
           >
             <ArrowLeftIcon
@@ -72,13 +97,13 @@ function Body() {
                 display: "flex",
                 alignItems: "center",
                 gap: "20px",
-                width: "120%",
+                width: "100%",
                 // border: "1px solid black",
               }}
             >
               {imageData &&
                 imageData.map((e, i) => (
-                  <div 
+                  <div
                     key={e.id}
                     style={{
                       display: "flex",
@@ -89,7 +114,7 @@ function Body() {
                     }}
                   >
                     <img
-                    className={current === i ?"normal":"black"}
+                      className={current === i ? "normal" : "black"}
                       onClick={() => handleClickImage(i)}
                       style={{
                         width: "100%",
@@ -111,16 +136,19 @@ function Body() {
         </Box>
 
         <Box
+          className="rightSideText"
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "10px",
-            justifyContent: "space-around",
+            width: "50%",
+            // border:"1px solid red",
+            alignItems: "center",
+            justifyContent: "space-evenly",
           }}
         >
-          <Box>
+          <Box className="texthead">
             <Typography variant="h3">{imageData[current].name}</Typography>
-            <Typography sx={{ width: "400px", mt: "30px" }}>
+            <Typography id="myParagraph" sx={{ width: "400px", mt: "30px" }}>
               {imageData[current].info}
             </Typography>
           </Box>

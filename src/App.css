@@ -13,3 +13,38 @@
 .normal{
   filter: grayscale(0);
 }
+
+@media screen and (max-width:992px) {
+  .respon{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
+/* border: 1px solid blue; */
+  }
+  .imageText{
+    /* border: 1px solid green; */
+    width: 100%;
+  }
+  .mainImage{
+    /* border: 1px solid red; */
+    width: 100%;
+  }
+  .imageText>div{
+    width: 100%;
+  }
+  .bottomImages{
+    /* border: 1px solid red ; */
+    width: 100%;
+  }
+  .rightSideText{
+    width: 100%;
+    /* border: 1px solid black; */
+  }
+  .texthead{
+    /* border: 1px solid green; */
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}
