@@ -76,7 +76,7 @@ function Body() {
             >
               {imageData &&
                 imageData.map((e, i) => (
-                  <div className={(current[i])?"normal":"black"}
+                  <div className={current === i ?"normal":"black"}
                     key={e.id}
                     style={{
                       display: "flex",
