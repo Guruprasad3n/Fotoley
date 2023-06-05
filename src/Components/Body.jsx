@@ -84,8 +84,7 @@ function Body() {
                   className="buttonText"
                   style={{
                     // width: "35px", height: "40px"
-                    fontSize: "4rem",
-                    textAlign: "center",
+                    fontSize: "3rem",
                   }}
                 />
               ) : (
@@ -93,8 +92,9 @@ function Body() {
                   className="buttonText"
                   style={{
                     // width: "35px", height: "40px"
-                    fontSize: "4rem",
-                    textAlign: "center",
+                    display: "block",
+                    margin: "auto",
+                    fontSize: "3rem",
                   }}
                 />
               )}
@@ -103,144 +103,7 @@ function Body() {
         </div>
       </div>
 
-      {/* -------------------------Old Code-------------------------------- */}
-      {/* <Box
-        className="respon"
-        sx={{
-          display: "flex",
-          height: "100vh",
-          width: "100%",
-        }}
-      >
-        <Box
-          className="imageText"
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            gap: "50px",
-            width: "50%",
-            // border:"1px solid red",
-            py: "50px",
-          }}
-        >
-          <img
-            className="mainImage"
-            style={{
-              objectFit: "cover",
-              height: "30rem",
-              width: "100%",
-              borderRadius: "50px",
-            }}
-            src={imageData[current].image}
-            alt={imageData[current].name}
-          />
-          <Box
-            className="bottomImages"
-            sx={{
-              display: "flex",
-              gap: "0px",
-              // px: "10px",
-              alignItems: "center",
-              // border: "1px solid red",
-              width: "100%",
-            }}
-          >
-            <ArrowLeftIcon
-              onClick={handleLeft}
-              style={{ fontSize: "5rem", cursor: "pointer" }}
-            />
-
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: "20px",
-                width: "100%",
-                // border: "1px solid black",
-              }}
-            >
-              {imageData &&
-                imageData.map((e, i) => (
-                  <div
-                    key={e.id}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      width: "100%",
-                      height: "120px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <img
-                      className={current === i ? "normal" : "black"}
-                      onClick={() => handleClickImage(i)}
-                      style={{
-                        width: "100%",
-                        height: "90%",
-                        borderRadius: "25px",
-                      }}
-                      src={e.image}
-                      alt={e.name}
-                    />
-                  </div>
-                ))}
-            </Box>
-
-            <ArrowRightIcon
-              onClick={handleRight}
-              style={{ fontSize: "5rem", cursor: "pointer" }}
-            />
-          </Box>
-        </Box>
-
-        <Box
-          className="rightSideText"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            width: "50%",
-            // border:"1px solid red",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Box className="texthead">
-            <Typography variant="h3">{imageData[current].name}</Typography>
-            <Typography id="myParagraph" sx={{ width: "400px", mt: "30px" }}>
-              {imageData[current].info}
-            </Typography>
-          </Box>
-
-          <Box>
-            <Button
-              variant="#25BEDA"
-              onClick={() => handlePalyPause()}
-              style={{
-                color: "#ffffff",
-                borderRadius: "50%",
-                width: "70px",
-                height: "70px",
-                background: "#25BEDA",
-                fontSize: "2rem",
-              }}
-            >
-              {" "}
-              {playPause ? (
-                <PauseIcon
-                  sx={{ fontSize: "2rem" }}
-                  style={{ width: "35px", height: "40px" }}
-                />
-              ) : (
-                <PlayArrowIcon
-                  sx={{ fontSize: "2rem" }}
-                  style={{ width: "35px", height: "40px" }}
-                />
-              )}{" "}
-            </Button>
-          </Box>
-        </Box>
-      </Box> */}
+     
     </>
   );
 }
