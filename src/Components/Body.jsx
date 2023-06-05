@@ -33,24 +33,83 @@ function Body() {
   const handlePalyPause = () => {
     setPlayPause(!playPause);
   };
-  function minimizeParagraphLines(paragraphId, linesToShow) {
-    const paragraph = document.getElementById(paragraphId);
-    const lineHeight = parseInt(getComputedStyle(paragraph).lineHeight);
-    const maxHeight = linesToShow * lineHeight;
+  // function minimizeParagraphLines(paragraphId, linesToShow) {
+  //   const paragraph = document.getElementById(paragraphId);
+  //   const lineHeight = parseInt(getComputedStyle(paragraph).lineHeight);
+  //   const maxHeight = linesToShow * lineHeight;
 
-    paragraph.style.maxHeight = maxHeight + "px";
-    paragraph.style.overflow = "hidden";
-  }
+  //   paragraph.style.maxHeight = maxHeight + "px";
+  //   paragraph.style.overflow = "hidden";
+  // }
   // minimizeParagraphLines("myParagraph", 3);
   return (
     <>
-      <Box
+      <div className="parent">
+        <div className="child1">
+          <img src={imageData[current].image} alt={imageData[current].name} />
+          <div className="bottomImagesFlex">
+            <ArrowLeftIcon
+              className="leftArror"
+              onClick={handleLeft}
+              style={{ fontSize: "5rem", cursor: "pointer" }}
+            />
+            {imageData &&
+              imageData.map((e, i) => (
+                <div key={e.id}>
+                  <img
+                    className={current === i ? "normal" : "black"}
+                    onClick={() => handleClickImage(i)}
+                    src={e.image}
+                    alt={e.name}
+                  />
+                </div>
+              ))}
+            <ArrowRightIcon
+              className="rightArror"
+              onClick={handleRight}
+              style={{ fontSize: "5rem", cursor: "pointer" }}
+            />
+          </div>
+        </div>
+        <div className="child2">
+          <div>
+            <h3>{imageData[current].name}</h3>
+            <p>{imageData[current].info}</p>
+          </div>
+
+          <div>
+            <button className="playButton" onClick={() => handlePalyPause()}>
+              {playPause ? (
+                <PauseIcon
+                  className="buttonText"
+                  style={{
+                    // width: "35px", height: "40px"
+                    fontSize: "4rem",
+                    textAlign: "center",
+                  }}
+                />
+              ) : (
+                <PlayArrowIcon
+                  className="buttonText"
+                  style={{
+                    // width: "35px", height: "40px"
+                    fontSize: "4rem",
+                    textAlign: "center",
+                  }}
+                />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* -------------------------Old Code-------------------------------- */}
+      {/* <Box
         className="respon"
         sx={{
           display: "flex",
           height: "100vh",
           width: "100%",
-          // border: "1px solid red"
         }}
       >
         <Box
@@ -181,7 +240,7 @@ function Body() {
             </Button>
           </Box>
         </Box>
-      </Box>
+      </Box> */}
     </>
   );
 }
